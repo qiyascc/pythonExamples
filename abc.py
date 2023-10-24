@@ -1,15 +1,17 @@
-def process_numbers(first_digit, second_digit):
-    result = []
-
-    result.append(first_digit ** 2)
-
-    for i in range(1, 6):
-        second_digit *= 2
-        result.append(second_digit + 2)
-
-    return result
+def generate_sequence(first_digit, second_digit, length):
+    sequence = []
+    for i in range(length):
+        if i % 2 == 0:
+            sequence.append(first_digit)
+            first_digit = first_digit ** 2
+        else:
+            sequence.append(second_digit)
+            second_digit = 2 * second_digit
+    return sequence
 
 first_digit = 3
 second_digit = 4
-result_list = process_numbers(first_digit, second_digit)
-print(result_list)
+sequence_length = 6
+
+result_sequence = generate_sequence(first_digit, second_digit, sequence_length)
+print(result_sequence)
