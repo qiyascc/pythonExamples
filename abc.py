@@ -1,17 +1,14 @@
-def generate_sequence(first_digit, second_digit, length):
-    sequence = []
-    for i in range(length):
-        if i % 2 == 0:
-            sequence.append(first_digit)
-            first_digit = first_digit ** 2
-        else:
-            sequence.append(second_digit)
-            second_digit = 2 * second_digit
-    return sequence
+import random
 
-first_digit = 3
-second_digit = 4
-sequence_length = 6
+def dice_roll_simulation(roll_count):
+    double_six_count = 0
+    for _ in range(roll_count):
+        die1 = random.randint(1, 6)
+        die2 = random.randint(1, 6)
+        if die1 == 6 and die2 == 6:
+            double_six_count += 1
+    probability_of_double_six = double_six_count / roll_count
+    return probability_of_double_six
 
-result_sequence = generate_sequence(first_digit, second_digit, sequence_length)
-print(result_sequence)
+probability = dice_roll_simulation(100)
+print(f"İki zarın da altı gelme olasılığı: {probability}")
