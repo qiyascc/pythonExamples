@@ -11,4 +11,4 @@ def dice_roll_simulation(roll_count):
     return probability_of_double_six
 
 probability = dice_roll_simulation(100)
-print(f"İki zarın da altı gelme olasılığı: {probability}")
+print(probability)
